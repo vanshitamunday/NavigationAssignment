@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  StyleSheet,
-} from "react-native";
+import {View, Text, TextInput, TouchableOpacity, Alert, StyleSheet,} from "react-native";
 import credentials from "../data/credentials.json";
 import { useRouter } from "expo-router";
 
@@ -44,7 +37,7 @@ const SignIn: React.FC<SignInProps> = ({ setIsSignedIn }) => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>Sign In</Text>
+        <Text style={styles.title}>Welcome to the App!!!!</Text>
 
         {/* Username Input */}
         <TextInput
@@ -81,7 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#f4f4f4",
     paddingHorizontal: 20,
   },
   card: {
@@ -89,7 +82,7 @@ const styles = StyleSheet.create({
     maxWidth: 400,
     backgroundColor: "#fff",
     padding: 20,
-    borderRadius: 12,
+    borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
