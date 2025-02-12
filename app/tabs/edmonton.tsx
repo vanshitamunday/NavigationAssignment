@@ -6,13 +6,16 @@ import CityInfo from "../../components/CityInfo";
 export default function Edmonton() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Edmonton 🌆</Text>
-      <Image
-        source={{ uri: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Edmonton_skyline_summer_2013.jpg" }}
-        style={styles.image}
-      />
-      <CityLink url="https://www.edmonton.ca/" text="Go to Edmonton City Page" />
-      <CityInfo text="Edmonton is famous for its river valley, the West Edmonton Mall, and being Canada's Festival City." />
+      <Text style={styles.title}>Welcome to Edmonton !!</Text>
+      
+      {/* Placeholder for image */}
+      <View style={styles.imagePlaceholder}>
+        <Text style={styles.placeholderText}>[Insert Image Here]</Text>
+      </View>
+
+      <CityInfo text="Edmonton is the capital of Alberta, known for its beautiful river valley and vibrant cultural scene." />
+      <CityInfo text="Did you know? Edmonton is home to **North America's largest mall**, the **West Edmonton Mall**, featuring over 800 stores! 🛍️" />
+      <CityLink url="https://www.edmonton.ca/" text="Visit Edmonton Official Site" />
     </View>
   );
 }
@@ -23,16 +26,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+    backgroundColor: "#A3D2CA",
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 10,
+    color: "#2c3e50",
+    marginBottom: 20,
   },
-  image: {
+  imagePlaceholder: {
     width: "100%",
-    height: 200,
-    borderRadius: 10,
-    marginBottom: 10,
+    height: 250,
+    backgroundColor: "#d5dbdb",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 15,
+    marginBottom: 15,
+  },
+  placeholderText: {
+    fontSize: 16,
+    color: "#666",
   },
 });

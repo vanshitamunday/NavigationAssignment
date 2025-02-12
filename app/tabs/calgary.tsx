@@ -6,13 +6,16 @@ import CityInfo from "../../components/CityInfo";
 export default function Calgary() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Calgary 🏔️</Text>
-      <Image
-        source={{ uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Calgary_Skyline_2021.jpg/1280px-Calgary_Skyline_2021.jpg" }}
-        style={styles.image}
-      />
-      <CityLink url="https://www.calgary.ca/home.html" text="Go to Calgary City Page" />
-      <CityInfo text="Calgary is known for its beautiful Rocky Mountains, the Calgary Stampede, and its vibrant energy sector." />
+      <Text style={styles.title}>Welcome to Calgary !!</Text>
+
+      {/* Placeholder for image */}
+      <View style={styles.imagePlaceholder}>
+        <Text style={styles.placeholderText}>[Insert Image Here]</Text>
+      </View>
+      
+      <CityInfo text="Calgary is known for its stunning Rocky Mountain views, the world-famous Calgary Stampede, and its booming energy industry." />
+      <CityInfo text="Did you know? Calgary has the **sunniest days** of any major Canadian city, with over **333 sunny days per year**! ☀️" />
+      <CityLink url="https://www.calgary.ca/home.html" text="Visit Calgary Official Site" />
     </View>
   );
 }
@@ -23,16 +26,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+    backgroundColor: "#e5c07b",
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 10,
+    color: "#2c3e50",
+    marginBottom: 20,
+    textAlign: "center",
   },
-  image: {
+  imagePlaceholder: {
     width: "100%",
-    height: 200,
-    borderRadius: 10,
-    marginBottom: 10,
+    height: 250,
+    backgroundColor: "#d5dbdb",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 15,
+    marginBottom: 15,
+  },
+  placeholderText: {
+    fontSize: 16,
+    color: "#666",
   },
 });
