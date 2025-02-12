@@ -30,7 +30,7 @@ const SignIn: React.FC<SignInProps> = ({ setIsSignedIn }) => {
       Alert.alert("Login Failed", "Incorrect username or password.");
     } else {
       Alert.alert("Success", "Signed in successfully!");
-      setIsSignedIn(true); // ✅ Update state in index.tsx to show welcome screen
+      setIsSignedIn(true);
     }
   };
 
