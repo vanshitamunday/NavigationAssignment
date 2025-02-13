@@ -10,7 +10,9 @@ export default function Edmonton() {
       
       {/* Placeholder for image */}
       <View style={styles.imagePlaceholder}>
-        <Text style={styles.placeholderText}>[Insert Image Here]</Text>
+        <Image
+        source={require("../../assets/edmonton.jpg")}
+        />
       </View>
 
       <CityInfo text="Edmonton is the capital of Alberta, known for its beautiful river valley and vibrant cultural scene." />
@@ -33,6 +35,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#2c3e50",
     marginBottom: 20,
+  },
+  imagePlaceholder: {
+    width: "100%",
+    height: 250,
+    backgroundColor: "#d5dbdb",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 15,
+    overflow: "hidden",
   },
   cityImage: {
     width: 300, 

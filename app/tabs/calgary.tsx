@@ -10,7 +10,9 @@ export default function Calgary() {
 
       {/* Placeholder for image */}
       <View style={styles.imagePlaceholder}>
-        <Text style={styles.placeholderText}>[Insert Image Here]</Text>
+        <Image
+          source={require("../../assets/calgary.jpg")}
+        />
       </View>
       
       <CityInfo text="Calgary is known for its stunning Rocky Mountain views, the world-famous Calgary Stampede, and its booming energy industry." />
@@ -41,5 +43,14 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 15,
     resizeMode: "cover",
+  },
+  imagePlaceholder: {
+    width: "100%",
+    height: 250,
+    backgroundColor: "#d5dbdb",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 15,
+    overflow: "hidden",
   },
 });
