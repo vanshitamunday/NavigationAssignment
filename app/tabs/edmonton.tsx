@@ -9,11 +9,9 @@ export default function Edmonton() {
       <Text style={styles.title}>Welcome to Edmonton !!</Text>
       
       {/* Placeholder for image */}
-      <Image 
-        source={require("../../assets/edmonton.jpg")} 
-        style={styles.cityImage} 
-        resizeMode="cover"
-      />
+      <View style={styles.imagePlaceholder}>
+        <Text style={styles.placeholderText}>[Insert Image Here]</Text>
+      </View>
 
       <CityInfo text="Edmonton is the capital of Alberta, known for its beautiful river valley and vibrant cultural scene." />
       <CityInfo text="Did you know? Edmonton is home to **North America's largest mall**, the **West Edmonton Mall**, featuring over 800 stores! 🛍️" />

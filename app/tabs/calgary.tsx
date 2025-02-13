@@ -9,12 +9,9 @@ export default function Calgary() {
       <Text style={styles.title}>Welcome to Calgary !!</Text>
 
       {/* Placeholder for image */}
-      <Image 
-        source={require("../../assets/edmonton.jpg")} 
-        style={styles.cityImage} 
-        resizeMode="cover"
-        />
-      
+      <View style={styles.imagePlaceholder}>
+        <Text style={styles.placeholderText}>[Insert Image Here]</Text>
+      </View>
       
       <CityInfo text="Calgary is known for its stunning Rocky Mountain views, the world-famous Calgary Stampede, and its booming energy industry." />
       <CityInfo text="Did you know? Calgary has the **sunniest days** of any major Canadian city, with over **333 sunny days per year**! ☀️" />
