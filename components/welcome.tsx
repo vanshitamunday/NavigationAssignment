@@ -16,6 +16,8 @@ export default function Welcome() {
         <View style={styles.imagePlaceholder}>
           <Image 
             source={require("../assets/calgary.jpg")}
+            style={styles.cityImage}
+            resizeMode="cover"
           />
         </View>
         <TouchableOpacity 
@@ -31,6 +33,8 @@ export default function Welcome() {
         <View style={styles.imagePlaceholder}>
           <Image 
             source={require("../assets/edmonton.jpg")}
+            style={styles.cityImage}
+            resizeMode="cover"
           />
         </View>
         <TouchableOpacity 
@@ -77,10 +81,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 12,
     marginBottom: 10,
+    overflow: "hidden",
   },
-  placeholderText: {
-    fontSize: 16,
-    color: "#7F8C8D",
+  cityImage: {
+    width: "100%",
+    height: "100%",
   },
   button: {
     width: "85%",
