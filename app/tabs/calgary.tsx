@@ -9,9 +9,12 @@ export default function Calgary() {
       <Text style={styles.title}>Welcome to Calgary !!</Text>
 
       {/* Placeholder for image */}
-      <View style={styles.imagePlaceholder}>
-        <Text style={styles.placeholderText}>[Insert Image Here]</Text>
-      </View>
+      <Image 
+        source={require("../../assets/edmonton.jpg")} 
+        style={styles.cityImage} 
+        resizeMode="cover"
+        />
+      
       
       <CityInfo text="Calgary is known for its stunning Rocky Mountain views, the world-famous Calgary Stampede, and its booming energy industry." />
       <CityInfo text="Did you know? Calgary has the **sunniest days** of any major Canadian city, with over **333 sunny days per year**! ☀️" />
@@ -35,17 +38,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: "center",
   },
-  imagePlaceholder: {
-    width: "100%",
-    height: 250,
-    backgroundColor: "#d5dbdb",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 15,
+  cityImage: {
+    width: 300, 
+    height: 180, 
+    borderRadius: 12,
     marginBottom: 15,
-  },
-  placeholderText: {
-    fontSize: 16,
-    color: "#666",
+    resizeMode: "cover",
   },
 });

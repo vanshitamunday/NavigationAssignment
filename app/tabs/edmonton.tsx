@@ -9,9 +9,11 @@ export default function Edmonton() {
       <Text style={styles.title}>Welcome to Edmonton !!</Text>
       
       {/* Placeholder for image */}
-      <View style={styles.imagePlaceholder}>
-        <Text style={styles.placeholderText}>[Insert Image Here]</Text>
-      </View>
+      <Image 
+        source={require("../../assets/edmonton.jpg")} 
+        style={styles.cityImage} 
+        resizeMode="cover"
+      />
 
       <CityInfo text="Edmonton is the capital of Alberta, known for its beautiful river valley and vibrant cultural scene." />
       <CityInfo text="Did you know? Edmonton is home to **North America's largest mall**, the **West Edmonton Mall**, featuring over 800 stores! 🛍️" />
@@ -34,17 +36,11 @@ const styles = StyleSheet.create({
     color: "#2c3e50",
     marginBottom: 20,
   },
-  imagePlaceholder: {
-    width: "100%",
-    height: 250,
-    backgroundColor: "#d5dbdb",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 15,
+  cityImage: {
+    width: 300, 
+    height: 180, 
+    borderRadius: 12,
     marginBottom: 15,
-  },
-  placeholderText: {
-    fontSize: 16,
-    color: "#666",
+    resizeMode: "cover",
   },
 });
