@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {View, Text, TextInput, TouchableOpacity, Alert, StyleSheet,} from "react-native";
-import credentials from "../data/credentials.json";
+import credentials from "../credentials.json";
 import { useRouter } from "expo-router";
 
 type SignInProps = { setIsSignedIn: (isSignedIn: boolean) => void };

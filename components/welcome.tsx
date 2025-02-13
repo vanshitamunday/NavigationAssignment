@@ -1,4 +1,5 @@
 import React from "react";
+import { Image } from "react-native";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useRouter } from "expo-router"; 
 
@@ -13,7 +14,9 @@ export default function Welcome() {
       {/* Calgary Section */}
       <View style={styles.cityContainer}>
         <View style={styles.imagePlaceholder}>
-          <Text style={styles.placeholderText}>[Calgary Image Here]</Text>
+          <Image 
+            source={require("../assets/calgary.jpg")}
+          />
         </View>
         <TouchableOpacity 
           style={[styles.button, styles.calgaryButton]} 
@@ -26,7 +29,9 @@ export default function Welcome() {
       {/* Edmonton Section */}
       <View style={styles.cityContainer}>
         <View style={styles.imagePlaceholder}>
-          <Text style={styles.placeholderText}>[Edmonton Image Here]</Text>
+          <Image 
+            source={require("../assets/edmonton.jpg")}
+          />
         </View>
         <TouchableOpacity 
           style={[styles.button, styles.edmontonButton]} 
