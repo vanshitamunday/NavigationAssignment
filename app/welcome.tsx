@@ -15,7 +15,7 @@ const Welcome: React.FC<WelcomeProps> = ({ userName }) => {
     if (!user) {
       fetchUserDetails();
     }
-  }, []);
+  }, [user]);
 
   const fetchUserDetails = async () => {
     const {

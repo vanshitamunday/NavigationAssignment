@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import Sign_In from "../components/login";
-import Welcome from "../components/welcome";
+import Welcome from "./welcome";
 import { router } from "expo-router";
 import supabase from "../lib/supabase";
 
