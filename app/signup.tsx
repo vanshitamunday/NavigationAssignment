@@ -37,6 +37,7 @@ const SignUp = () => {
       if (data?.user?.id) {
         const userId = data.user.id;
 
+        // Store user details in database
         const { error: insertError } = await supabase
           .from("user_details")
           .insert([
@@ -57,12 +58,12 @@ const SignUp = () => {
         return;
       }
 
+      // Success message & navigation
       Alert.alert("Success!", "Account created successfully. You can now log in.");
       router.push("/");
 
     } catch (err) {
       Alert.alert("Error", "An unexpected error occurred.");
-      console.error("Signup failed:", err);
     }
   };
 

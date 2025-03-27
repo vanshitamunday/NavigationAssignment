@@ -36,17 +36,22 @@ export default function Sign_In({ setIsSignedIn, onSignInSuccess }: SignInProps)
       return;
     }
 
-    if (data.user) {
+    if (data?.user?.id) {
+      console.log("Logged-in User ID:", data.user.id);
+
       const { data: userData, error: userError } = await supabase
         .from("user_details")
-        .select("first_name")
+        .select("*")
         .eq("uuid", data.user.id)
         .single();
 
       if (userError || !userData) {
+        console.error("Error fetching user data:", userError);
         Alert.alert("Error", "Could not fetch user details.");
         return;
       }
+
+      console.log("Fetched User Data:", userData);
 
       setIsSignedIn(true);
       onSignInSuccess(userData.first_name);
