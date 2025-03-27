@@ -1,14 +1,59 @@
-import React from "react";
-import { Image } from "react-native";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { useRouter } from "expo-router"; 
+import React, { useEffect, useState } from "react";
+import { Image, View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { useRouter } from "expo-router";
+import supabase from "../lib/supabase";
 
-export default function Welcome() {
-  const router = useRouter(); 
+interface WelcomeProps {
+  userName: string | null;
+}
+
+const Welcome: React.FC<WelcomeProps> = ({ userName }) => {
+  const router = useRouter();
+  const [user, setUser] = useState<string | null>(userName);
+
+  useEffect(() => {
+    if (!user) {
+      fetchUserDetails();
+    }
+  }, []);
+
+  const fetchUserDetails = async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    if (!session) {
+      router.replace("/");
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("user_details")
+      .select("first_name")
+      .eq("uuid", session.user.id)
+      .single();
+
+    if (error || !data) {
+      Alert.alert("Error", "Could not fetch user details.");
+      setUser("Guest");
+    } else {
+      setUser(data.first_name);
+    }
+  };
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      Alert.alert("Logout Failed", error.message);
+      return;
+    }
+    router.replace("/");
+  };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Our New App! </Text>
+      <Text style={styles.title}>Welcome, {user || "Guest"}!</Text>
+
       <Text style={styles.subtitle}>Select a city to explore:</Text>
 
       {/* Calgary Section */}
@@ -44,9 +89,16 @@ export default function Welcome() {
           <Text style={styles.buttonText}>Go to Edmonton</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Logout Button */}
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Text style={styles.logoutText}>Log Out</Text>
+      </TouchableOpacity>
     </View>
   );
-}
+};
+
+export default Welcome;
 
 const styles = StyleSheet.create({
   container: {
@@ -76,7 +128,7 @@ const styles = StyleSheet.create({
   imagePlaceholder: {
     width: 300,
     height: 180,
-    backgroundColor: "#D5DBDB", 
+    backgroundColor: "#D5DBDB",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 12,
@@ -105,6 +157,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#42A5F5",
   },
   buttonText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+  logoutButton: {
+    marginTop: 20,
+    backgroundColor: "#FF5252",
+    padding: 15,
+    borderRadius: 10,
+    width: "85%",
+    alignItems: "center",
+  },
+  logoutText: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#fff",
